@@ -14,38 +14,22 @@
   "elections": [
     {
       "id": 1,
+      "voterIds": [ 1 ],
       "propositions": [
         {
           "id": 1,
-          "description": "Is red the best color?"
+          "description": "Is red the best color?",
+          "votesFor": 0
         },
         {
           "id": 2,
-          "description": "Is Eric the best React instructor?"
+          "description": "Is Eric the best React instructor?",
+          "votesFor": 1
         },
         {
           "id": 3,
-          "description": "Are the Reactive-Coders the best team?"
-        }
-      ],
-      "ballots": [
-        {
-          "id": 1,
-          "voterId": 1,
-          "votesCast": [
-            {
-              "propId": 1,
-              "vote": false
-            },
-            {
-              "propId": 2,
-              "vote": true
-            },
-            {
-              "propId": 3,
-              "vote": true
-            }
-          ]
+          "description": "Are the Reactive-Coders the best team?",
+          "votesFor": 1
         }
       ]
     }
