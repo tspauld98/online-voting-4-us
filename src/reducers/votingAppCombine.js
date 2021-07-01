@@ -1,9 +1,15 @@
 import { combineReducers } from "redux";
-import { electionsReducer } from "./election-tool";
+import {
+    electionResultsReducer,
+    electionsReducer,
+    propositionsReducer,
+  } from "./election-tool";
 import { registrationsReducer, viewSwitchReducer } from "./registration-tool";
 
 export const votingAppCombineReducer = combineReducers({
     voters: registrationsReducer,
     viewSwitch: viewSwitchReducer,
     elections: electionsReducer,
+    propositions: propositionsReducer,
+    electionResults: electionResultsReducer,
 });
