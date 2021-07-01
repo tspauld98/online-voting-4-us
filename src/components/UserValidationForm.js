@@ -1,14 +1,15 @@
 import { useState } from 'react';
 
-export const UserValidationForm = () => {
+export const UserValidationForm = ({validation, onValidateUserInfo}) => {
 
-    const [userInfo, setUserInfo] = useState({ firstName: '', lastName: '' })
+    const [userId, setUserId] = useState(-1);
 
     const change = (e) => {
-        setUserInfo({
-            ...userInfo,
-            [e.target.name]: e.target.value,
-        })
+        setUserId(e.target.value);
+    }
+
+    const validateUserInfo = () => {
+        onValidateUserInfo(userId);
     }
 
     return (
@@ -17,26 +18,16 @@ export const UserValidationForm = () => {
         <h2>User Info</h2>
         <form>
             <div>
-                <label htmlFor="first-name-input">First Name</label>
+                <label htmlFor="voterId">Voter ID</label>
                 <input
                 type="text"
-                id="first-name-input"
-                name="firstName"
-                value={userInfo.firstName}
+                id="voterId"
+                name="voterId"
+                value={userId}
                 onChange={change}
                 />
             </div>
-            <div>
-                <label htmlFor="last-name-input">Last Name</label>
-                <input
-                type="text"
-                id="last-name-input"
-                name="lastName"
-                value={userInfo.lastName}
-                onChange={change}
-                />
-            </div>
-            <button type="button">
+            <button type="button" onClick={validateUserInfo}>
                 Submit
             </button>
         </form>

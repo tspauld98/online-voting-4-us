@@ -2,21 +2,22 @@ import { useMemo, useState } from 'react';
 import { bindActionCreators } from 'redux';
 import { useDispatch, useSelector } from 'react-redux';
 import { UserValidationForm } from '../components/UserValidationForm';
+import {createValidateUserInfoAction} from '../actions/votes-tool.js';
 
 
 export const CaptureVoteContainer = () => {
 
-    // const voters = useSelector(state => state.voters);
+    const validation = useSelector(state => state.validation);
   
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
   
-    // const actions = useMemo(() => bindActionCreators({
-    //   onValidateUserInfo : validateUserInfoAction
-    // }, dispatch), [dispatch]);
+    const actions = useMemo(() => bindActionCreators({
+      onValidateUserInfo : createValidateUserInfoAction
+    }, dispatch), [dispatch]);
 
     return (
     <>
-        <UserValidationForm />
+        <UserValidationForm validation = {validation} {...actions}/>
     </>
     );
 }

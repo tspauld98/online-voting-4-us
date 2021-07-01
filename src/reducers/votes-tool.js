@@ -1,4 +1,4 @@
-import { VALIDATE_USER_INFO_ACTION } from "../actions/election-tool";
+import { VALIDATE_USER_INFO_ACTION } from "../actions/votes-tool";
 
 
 
