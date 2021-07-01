@@ -3,17 +3,24 @@ import { Provider } from 'react-redux';
 
 import { votingAppStore } from "../stores/votingAppStore"
 import { ElectionToolContainer } from '../containers/ElectionToolContainer';
+import { CaptureVoteContainer } from '../containers/CaptureVoteContainer';
 
 export const App = () => {
   return (
     <Router>
       <main>
         <Switch>
-          <Route path="/">
-            <Provider store={votingAppStore}>
+          <Provider store={votingAppStore}>
+          
+          <Route path="/" exact>
               <ElectionToolContainer />
-            </Provider>
           </Route>
+
+          <Route path="/capture-vote">
+              <CaptureVoteContainer />
+          </Route>
+
+          </Provider>
         </Switch>
       </main>
     </Router>
