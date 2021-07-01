@@ -1,14 +1,27 @@
-export const ElectionListContainer = () => {
-    return (
-    <>
-        <h1>Election Tools</h1>
+import { useMemo, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { bindActionCreators } from "redux";
+import { refreshElections } from "../actions/election-tool";
+import { ElectionList } from "../components/ElectionList";
 
-        <div>
-            <a href="/create-election-form">Create an election</a>
-        </div>
-        
-        <div>Placeholder: elections table</div>
-        <div>Placeholder: elections form</div>
-    </>
-    );
-}
+export const ElectionListContainer = () => {
+  const elections = useSelector((state) => state.elections);
+  const dispatch = useDispatch();
+
+  const actions = useMemo(
+    () =>
+      bindActionCreators(
+        {
+          refreshElections: refreshElections,
+        },
+        dispatch
+      ),
+    [dispatch]
+  );
+
+  useEffect(() => {
+    actions.refreshElections();
+  }, [actions]);
+
+  return <ElectionList elections={elections} />;
+};

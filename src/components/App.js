@@ -1,32 +1,54 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from "react-router-dom";
+import { Provider } from "react-redux";
 
-import { votingAppStore } from "../stores/votingAppStore"
-import { ElectionListContainer } from '../containers/ElectionListContainer';
-import { ElectionFormContainer } from '../containers/ElectionFormContainer';
-import { CommonHeader } from '../components/CommonHeader';
+import { Layout } from "./Layout";
+import { Header } from "./Header";
+import { Splash } from "./Splash";
+
+import { votingAppStore } from "../stores/votingAppStore";
+import { RegistrationToolContainer } from "../containers/RegistrationToolContainer";
+import { ElectionListContainer } from "../containers/ElectionListContainer";
+import { ElectionFormContainer } from "../containers/ElectionFormContainer";
+import { ElectionResultsContainer } from "../containers/ElectionResultsContainer";
 
 export const App = () => {
   return (
     <Provider store={votingAppStore}>
       <Router>
-      <main>
-        <Switch>
-        <Route path="/election-list">
-              <ElectionListContainer />
-          </Route>
-          <Route path="/create-election-form">
-              <ElectionFormContainer />
-          </Route>
-          <Route path="/">
-            <CommonHeader title="Homepage" />
-          </Route>
-        </Switch>
-      </main>
-    </Router>
+        <Layout>
+          <Header />
+          <main>
+            <Switch>
+              <Route path="/home">
+                <Splash />
+              </Route>
+              <Route path="/register">
+                <RegistrationToolContainer />
+              </Route>
+              <Route path="/vote">{/* workflow 2 goes here */}</Route>
+              <Route path="/manageElections">
+                <ElectionListContainer />
+              </Route>
+              <Route path="/createElection">
+                <ElectionFormContainer />
+              </Route>
+              <Route path="/viewElectionResults/:electionId">
+                <ElectionResultsContainer />
+              </Route>
+              <Route exact path="/">
+                <Redirect to="/home" />
+              </Route>
+            </Switch>
+          </main>
+        </Layout>
+      </Router>
     </Provider>
-    
   );
-}
+};
 
 export default App;
