@@ -14,10 +14,10 @@
   "elections": [
     {
       "id": 1,
-      "voterIds": [ 1 ],
+      "title": "Election #1",
+      "voterIds": [1],
       "propositions": [
         {
-          "id": 1,
           "description": "Is red the best color?",
           "votesFor": 0
         },
@@ -27,11 +27,67 @@
           "votesFor": 1
         },
         {
-          "id": 3,
           "description": "Are the Reactive-Coders the best team?",
           "votesFor": 1
         }
       ]
+    },
+    {
+      "title": "Election #2",
+      "voterIds": [],
+      "propositions": [
+        {
+          "description": "Question 1",
+          "votesFor": 0
+        },
+        {
+          "description": "Question 2",
+          "votesFor": 0
+        },
+        {
+          "description": "Question 3",
+          "votesFor": 0
+        }
+      ],
+      "id": 3
+    },
+    {
+      "title": "Election 4",
+      "voterIds": [],
+      "propositions": [
+        {
+          "description": "q1",
+          "votesFor": 0
+        },
+        {
+          "description": "q2",
+          "votesFor": 0
+        },
+        {
+          "description": "q3",
+          "votesFor": 0
+        }
+      ],
+      "id": 4
+    },
+    {
+      "title": "Election5",
+      "voterIds": [],
+      "propositions": [
+        {
+          "description": "q1",
+          "votesFor": 0
+        },
+        {
+          "description": "q2",
+          "votesFor": 0
+        },
+        {
+          "description": "q43",
+          "votesFor": 0
+        }
+      ],
+      "id": 5
     }
   ]
 }
