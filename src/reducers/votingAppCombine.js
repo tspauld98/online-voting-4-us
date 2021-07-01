@@ -1,12 +1,9 @@
 import { combineReducers } from "redux";
 import { electionsReducer } from "./election-tool";
+import { validationReducer } from "./votes-tool";
 
-
-const votersReducer = (voters=[], action) => {
-    return action.voters ? action.voters : voters;
-}
 
 export const votingAppCombineReducer = combineReducers({
-    voters: votersReducer,
+    validation: validationReducer,
     elections: electionsReducer
 });

@@ -6,7 +6,3 @@ export const createAppendElectionAction = (election) => ({
     election
 });
 
-export const createValidateUserInfoAction = (voter) => ({
-    type: VALIDATE_USER_INFO_ACTION,
-    voter
-});
