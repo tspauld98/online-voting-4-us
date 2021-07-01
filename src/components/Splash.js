@@ -14,6 +14,14 @@ export const Splash = () => {
           <p>
               <Link to="/register" className="pure-button pure-button-primary">Get Started by Registering!</Link>
           </p>
+          <h2>Selet your ballot to start voting!</h2>
+          <label for="ballots">Ballots:</label>
+          <select name="ballots" id="ballots">
+            <option value="ballot-1">Ballot 1</option>
+          </select>
+          <p>
+              <Link to="/vote" className="pure-button pure-button-primary">Vote</Link>
+          </p>
       </div>
     </div>
   </>;

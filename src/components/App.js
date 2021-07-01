@@ -25,7 +25,7 @@ export const App = () => {
               <RegistrationToolContainer />
             </Route>
             <Route path="/vote">
-              {/* workflow 2 goes here */}
+              <CaptureVoteContainer />
             </Route>
             <Route path="/manageElections">
                 <ElectionToolContainer />
