@@ -19,6 +19,16 @@
       "email": "tim@example.com",
       "phone": "123-123-1234",
       "id": 2
+    },
+    {
+      "id": 3,
+      "firstName": "Debbie",
+      "lastName": "Smith",
+      "address": "123 Main Street",
+      "city": "Metropolis",
+      "birthdate": "1980-06-30",
+      "email": "toby@example.com",
+      "phone": "999-555-1234"
     }
   ],
   "elections": [
@@ -27,32 +37,20 @@
       "title": "Election #1",
       "voterIds": [
         1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1
+        2
       ],
       "propositions": [
         {
           "description": "Is red the best color?",
-          "votesFor": 6
+          "votesFor": 1
         },
         {
-          "id": 2,
           "description": "Is Eric the best React instructor?",
-          "votesFor": 6
+          "votesFor": 1
         },
         {
           "description": "Are the Reactive-Coders the best team?",
-          "votesFor": 2
+          "votesFor": 1
         }
       ]
     },
@@ -60,7 +58,7 @@
       "title": "Election #2",
       "voterIds": [
         1,
-        1
+        2
       ],
       "propositions": [
         {
@@ -73,18 +71,20 @@
         },
         {
           "description": "Question 3",
-          "votesFor": 0
+          "votesFor": 1
         }
       ],
       "id": 3
     },
     {
       "title": "Election 4",
-      "voterIds": [],
+      "voterIds": [
+        1
+      ],
       "propositions": [
         {
           "description": "q1",
-          "votesFor": 0
+          "votesFor": 1
         },
         {
           "description": "q2",
@@ -99,15 +99,18 @@
     },
     {
       "title": "Election5",
-      "voterIds": [],
+      "voterIds": [
+        1,
+        2
+      ],
       "propositions": [
         {
           "description": "q1",
-          "votesFor": 0
+          "votesFor": 2
         },
         {
           "description": "q2",
-          "votesFor": 0
+          "votesFor": 2
         },
         {
           "description": "q43",
@@ -115,6 +118,21 @@
         }
       ],
       "id": 5
+    },
+    {
+      "title": "new election",
+      "voterIds": [],
+      "propositions": [
+        {
+          "description": "hello",
+          "votesFor": 0
+        },
+        {
+          "description": "testing?",
+          "votesFor": 0
+        }
+      ],
+      "id": 6
     }
   ]
 }

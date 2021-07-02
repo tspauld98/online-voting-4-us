@@ -4,8 +4,17 @@ import {
     electionsReducer,
     propositionsReducer,
   } from "./election-tool";
-import { registrationsReducer, viewSwitchReducer, voterEditReducer, voterSortReducer } from "./registration-tool";
-import { validationReducer, errorMessageReducer, electionAlreadyVotedReducer } from "./votes-tool";
+import { 
+  registrationsReducer, 
+  viewSwitchReducer, 
+  voterEditReducer, 
+  voterSortReducer 
+} from "./registration-tool";
+import { 
+  validationReducer, 
+  errorMessageReducer, 
+  electionAlreadyVotedReducer 
+} from "./votes-tool";
 
 export const votingAppCombineReducer = combineReducers({
     voters: registrationsReducer,
@@ -18,4 +27,5 @@ export const votingAppCombineReducer = combineReducers({
     elections: electionsReducer,
     propositions: propositionsReducer,
     electionResults: electionResultsReducer,
+    selectedBallot: electionResultsReducer,
 });

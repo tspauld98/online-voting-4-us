@@ -38,7 +38,6 @@ export const ElectionResultsContainer = () => {
     actions.loadElection(electionId);
   }, [actions, electionId]);
 
-  console.log(">> Current election: ", electionResults);
   return (
     <>
       <CommonHeader title={"Results: " + electionResults.title} />
