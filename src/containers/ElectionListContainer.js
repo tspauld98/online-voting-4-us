@@ -3,8 +3,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import { refreshElections } from "../actions/election-tool";
 import { ElectionList } from "../components/ElectionList";
+import { CommonHeader } from "../components/CommonHeader";
+import { SubMenu } from "../components/SubMenu";
 
 export const ElectionListContainer = () => {
+  const menuLinks = [
+    {
+      href: "/createElection",
+      label: "Create an Election",
+    },
+  ];
+
   const elections = useSelector((state) => state.elections);
   const dispatch = useDispatch();
 
@@ -23,5 +32,11 @@ export const ElectionListContainer = () => {
     actions.refreshElections();
   }, [actions]);
 
-  return <ElectionList elections={elections} />;
+  return (
+    <>
+      <CommonHeader title="Election Tools" />
+      <SubMenu menuLinks={menuLinks} />
+      <ElectionList elections={elections} />
+    </>
+  );
 };

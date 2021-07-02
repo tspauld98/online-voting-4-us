@@ -1,7 +1,7 @@
-export const CommonHeader = ({title}) => {
-    return (
-        <header>
-            <h1>{title}</h1>
-        </header>   
-    )
-}
+export const CommonHeader = ({ title }) => {
+  return (
+    <header>
+      <h3>{title}</h3>
+    </header>
+  );
+};
