@@ -1,7 +1,16 @@
 import { VoterEditRow } from "./VoterEditRow";
 import { VoterViewRow } from "./VoterViewRow";
 
-export const VoterRoll = ({ voterEdit, voters, onEditClick: editVoter, onCancelClick: cancelVoterEdit, onUpdateClick: updateVoter, onRemoveClick: removeVoter, onReturnClick: viewRegisterMain }) => {
+export const VoterRoll = ({
+  voterEdit,
+  voterSort,
+  voters,
+  onEditClick: editVoter,
+  onCancelClick: cancelVoterEdit,
+  onSortClick: setVoterSort,
+  onUpdateClick: updateVoter,
+  onRemoveClick: removeVoter,
+  onReturnClick: viewRegisterMain }) => {
 
   return (<>
     <h1>Voter Registration Tool</h1>

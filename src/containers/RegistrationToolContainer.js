@@ -5,13 +5,36 @@ import { VoterRoll } from "../components/VoterRoll";
 
 export const RegistrationToolContainer = () => {
 
-  const { voters, viewSwitch, voterEdit, voterSort, registerVoter, viewVoters, viewRegisterMain, editVoter, cancelEditVoter, addVoter, updateVoter, removeVoter } = useVoterRoll();
+  const {
+    voters,
+    viewSwitch,
+    voterEdit,
+    voterSort,
+    registerVoter,
+    viewVoters,
+    viewRegisterMain,
+    editVoter,
+    cancelEditVoter,
+    setVoterSort,
+    addVoter,
+    updateVoter,
+    removeVoter
+  } = useVoterRoll();
 
   switch (viewSwitch) {
     case 1:
       return <RegistrationForm onCompleteClick={addVoter} onReturnClick={viewRegisterMain} />;
     case 2:
-      return <VoterRoll voterEdit={voterEdit} voters={voters} onEditClick={editVoter} onCancelClick={cancelEditVoter} onUpdateClick={updateVoter} onRemoveClick={removeVoter} onReturnClick={viewRegisterMain} />;
+      return <VoterRoll
+        voterEdit={voterEdit}
+        voterSort={voterSort}
+        voters={voters}
+        onEditClick={editVoter}
+        onCancelClick={cancelEditVoter}
+        onSortClick={setVoterSort}
+        onUpdateClick={updateVoter}
+        onRemoveClick={removeVoter}
+        onReturnClick={viewRegisterMain} />;
     default:
       return (<>
           <h1>Voter Registration Tool</h1>
