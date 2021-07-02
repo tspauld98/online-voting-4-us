@@ -12,9 +12,11 @@ import { Splash } from "./Splash";
 
 import { votingAppStore } from "../stores/votingAppStore";
 import { RegistrationToolContainer } from "../containers/RegistrationToolContainer";
+import { CaptureVoteContainer } from "../containers/CaptureVoteContainer";
 import { ElectionListContainer } from "../containers/ElectionListContainer";
 import { ElectionFormContainer } from "../containers/ElectionFormContainer";
 import { ElectionResultsContainer } from "../containers/ElectionResultsContainer";
+import { Success } from "../components/Success"
 
 export const App = () => {
   return (
@@ -30,7 +32,9 @@ export const App = () => {
               <Route path="/register">
                 <RegistrationToolContainer />
               </Route>
-              <Route path="/vote">{/* workflow 2 goes here */}</Route>
+              <Route path="/vote/ballot/:ballotId">
+                <CaptureVoteContainer />
+              </Route>
               <Route path="/manageElections">
                 <ElectionListContainer />
               </Route>
@@ -39,6 +43,9 @@ export const App = () => {
               </Route>
               <Route path="/viewElectionResults/:electionId">
                 <ElectionResultsContainer />
+              </Route>
+              <Route path="/success">
+                <Success />
               </Route>
               <Route exact path="/">
                 <Redirect to="/home" />
