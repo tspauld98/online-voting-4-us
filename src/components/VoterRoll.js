@@ -1,4 +1,4 @@
-export const VoterRoll = ({ onReturnClick: viewRegisterMain }) => {
+export const VoterRoll = ({ voters, onRemoveClick: removeVoter, onReturnClick: viewRegisterMain }) => {
   return (<>
     <h1>Voter Registration Tool</h1>
     <h2>Voter Roll</h2>

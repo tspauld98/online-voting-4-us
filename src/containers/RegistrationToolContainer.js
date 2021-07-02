@@ -1,22 +1,18 @@
 import { useVoterRoll } from "../hooks/useVoterRoll";
 
+import { RegistrationForm } from "../components/RegistrationForm";
 import { VoterRoll } from "../components/VoterRoll";
+import { updateVoter } from "../actions/registration-tool";
 
 export const RegistrationToolContainer = () => {
 
-  const { viewSwitch, registerVoter, viewVoters, viewRegisterMain } = useVoterRoll();
+  const { voters, viewSwitch, registerVoter, viewVoters, viewRegisterMain, addVoter, updateVoter, removeVoter } = useVoterRoll();
 
   switch (viewSwitch) {
     case 1:
-      return (<>
-        <h1>Voter Registration Tool</h1>
-        <h2>Register Voter</h2>
-        <div>
-          <button className="pure-button pure-button-primary" onClick={viewRegisterMain}>Return To Registration Menu</button>
-        </div>
-      </>);
+      return <RegistrationForm onCompleteClick={addVoter} onReturnClick={viewRegisterMain} />;
     case 2:
-      return <VoterRoll onReturnClick={viewRegisterMain} />;
+      return <VoterRoll voters={voters} onUpdateClick={updateVoter} onRemoveClick={removeVoter} onReturnClick={viewRegisterMain} />;
     default:
       return (<>
           <h1>Voter Registration Tool</h1>

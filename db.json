@@ -16,7 +16,9 @@
     {
       "id": 1,
       "title": "Election #1",
-      "voterIds": [1],
+      "voterIds": [
+        1
+      ],
       "propositions": [
         {
           "description": "Is red the best color?",
