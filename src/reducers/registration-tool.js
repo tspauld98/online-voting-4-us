@@ -31,7 +31,7 @@ export const voterEditReducer = (_, action) => {
   }
 };
 
-export const voterSortReducer = (voterSort = { element: "id", ascending: true }, action) => {
+export const voterSortReducer = (voterSort = { element: "id", type: "Int", ascending: true }, action) => {
   if (action.type === SET_VOTER_SORT_ACTION) {
     return action.value;
   } else {
