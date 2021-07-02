@@ -1,15 +1,15 @@
 import { useState } from 'react';
 
-export const UserValidationForm = ({validation, onValidateUserInfo, ballotId}) => {
+export const UserValidationForm = ({onValidateUserInfo, ballotId}) => {
 
-    const [userId, setUserId] = useState(-1);
+    const [voterId, setVoterId] = useState(-1);
 
     const change = (e) => {
-        setUserId(e.target.value);
+        setVoterId(e.target.value);
     }
 
     const validateUserInfo = () => {
-        onValidateUserInfo(userId, ballotId);
+        onValidateUserInfo(voterId, ballotId);
     }
 
     return (
@@ -23,7 +23,7 @@ export const UserValidationForm = ({validation, onValidateUserInfo, ballotId}) =
                 type="text"
                 id="voterId"
                 name="voterId"
-                value={userId}
+                value={voterId}
                 onChange={change}
                 />
             </div>

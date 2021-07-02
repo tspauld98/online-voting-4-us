@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import { useState } from "react";
 
-export const Ballot = ({selectedBallot: ballot}) => {
+export const Ballot = ({selectedBallot: ballot, userId}) => {
 
     const { propositions, title } = ballot;
     // const {propositions, title} = useSelector(state => state.ballot);
@@ -18,8 +18,10 @@ export const Ballot = ({selectedBallot: ballot}) => {
         console.log(e.target.checked);
         const newB = {...ballot}
         const desc = newB.propositions.find(p => p.description === description)
-        desc.votesFor++;
-        setNewBallot({...newB})
+        e.target.checked ? desc.votesFor++ : desc.votesFor--;
+        console.log('p', newB);
+        newB.voterIds.push(userId)
+        // setNewBallot({...newB})
     }
 
     return (

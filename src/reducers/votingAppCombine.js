@@ -4,10 +4,10 @@ import {
   electionResultsReducer,
   propositionsReducer,
 } from "./election-tool";
-import { ballotReducer, validationReducer } from "./votes-tool";
+import { validationReducer } from "./votes-tool";
 
 export const votingAppCombineReducer = combineReducers({
-  validation: validationReducer,
+  userId: validationReducer,
   elections: electionsReducer,
   propositions: propositionsReducer,
   electionResults: electionResultsReducer,
