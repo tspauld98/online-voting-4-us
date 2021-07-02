@@ -24,6 +24,5 @@ export const votingAppCombineReducer = combineReducers({
   alreadyVotedFlag: electionAlreadyVotedReducer,
   elections: electionsReducer,
   propositions: propositionsReducer,
-  electionResults: electionResultsReducer,
-  selectedBallot: electionResultsReducer,
+  activeElection: electionResultsReducer,
 });

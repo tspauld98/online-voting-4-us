@@ -13,7 +13,7 @@ import { Ballot } from "../components/Ballot";
 
 export const CaptureVoteContainer = () => {
   const { ballotId } = useParams();
-  const selectedBallot = useSelector((state) => state.selectedBallot);
+  const selectedBallot = useSelector((state) => state.activeElection);
   const userId = useSelector((state) => state.userId);
   const errorMessage = useSelector((state) => state.errorMessage);
   const alreadyVotedFlag = useSelector((state) => state.alreadyVotedFlag);
