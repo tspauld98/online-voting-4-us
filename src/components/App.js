@@ -16,6 +16,7 @@ import { CaptureVoteContainer } from "../containers/CaptureVoteContainer";
 import { ElectionListContainer } from "../containers/ElectionListContainer";
 import { ElectionFormContainer } from "../containers/ElectionFormContainer";
 import { ElectionResultsContainer } from "../containers/ElectionResultsContainer";
+import { Success } from "../components/Success"
 
 export const App = () => {
   return (
@@ -42,6 +43,9 @@ export const App = () => {
               </Route>
               <Route path="/viewElectionResults/:electionId">
                 <ElectionResultsContainer />
+              </Route>
+              <Route path="/success">
+                <Success />
               </Route>
               <Route exact path="/">
                 <Redirect to="/home" />

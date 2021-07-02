@@ -15,16 +15,20 @@
     {
       "id": 1,
       "title": "Election #1",
-      "voterIds": [1],
+      "voterIds": [
+        1,
+        1,
+        1
+      ],
       "propositions": [
         {
           "description": "Is red the best color?",
-          "votesFor": 0
+          "votesFor": 1
         },
         {
           "id": 2,
           "description": "Is Eric the best React instructor?",
-          "votesFor": 1
+          "votesFor": 2
         },
         {
           "description": "Are the Reactive-Coders the best team?",

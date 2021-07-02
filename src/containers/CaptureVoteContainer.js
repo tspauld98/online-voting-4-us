@@ -4,9 +4,9 @@ import { bindActionCreators } from "redux";
 import { useDispatch, useSelector } from "react-redux";
 import { UserValidationForm } from "../components/UserValidationForm";
 import {
-  createClearElectionAlreadyVotedAction,
   createSetElectionAlreadyVotedAction,
   createValidateUserInfoAction,
+  setBallotData,
 } from "../actions/votes-tool.js";
 import { loadElection } from "../actions/election-tool";
 import { Ballot } from "../components/Ballot";
@@ -26,7 +26,7 @@ export const CaptureVoteContainer = () => {
           loadElection: loadElection,
           onValidateUserInfo: createValidateUserInfoAction,
           setAlreadyVotedFlag: createSetElectionAlreadyVotedAction,
-          clearAlreadyVotedFlag: createClearElectionAlreadyVotedAction,
+          setBallotData: setBallotData,
         },
         dispatch
       ),
@@ -51,7 +51,11 @@ export const CaptureVoteContainer = () => {
         onValidateUserInfo={actions.onValidateUserInfo}
       />
       {userId && !alreadyVotedFlag && (
-        <Ballot selectedBallot={selectedBallot} userId={userId} />
+        <Ballot
+          selectedBallot={selectedBallot}
+          userId={userId}
+          setBallotData={actions.setBallotData}
+        />
       )}
       {!userId && <h1> this ID is invalid </h1>}
       {userId && alreadyVotedFlag && (
