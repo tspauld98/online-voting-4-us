@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import { useState } from "react";
 
-export const Ballot = ({ballot}) => {
+export const Ballot = ({selectedBallot: ballot}) => {
 
     const { propositions, title } = ballot;
     // const {propositions, title} = useSelector(state => state.ballot);
@@ -26,9 +26,9 @@ export const Ballot = ({ballot}) => {
     <>
         <h1>Ballot</h1>
         <h2>{title}</h2>
-        {propositions && propositions.map(p => {
+        {propositions && propositions.map((p, index) => {
             return (
-                <div key={p.id}>
+                <div key={index}>
                     <input type="checkbox" id={p.description} name={p.description} value={p.description} onChange={(e) => {change(p.description, e)}}/>
                     <label htmlFor={p.description}>{p.description}</label><br></br>
                 </div>
