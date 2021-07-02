@@ -2,7 +2,6 @@ import { useVoterRoll } from "../hooks/useVoterRoll";
 
 import { RegistrationForm } from "../components/RegistrationForm";
 import { VoterRoll } from "../components/VoterRoll";
-import { updateVoter } from "../actions/registration-tool";
 
 export const RegistrationToolContainer = () => {
 
