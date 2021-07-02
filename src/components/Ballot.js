@@ -31,7 +31,7 @@ export const Ballot = ({ selectedBallot: ballot, userId, setBallotData }) => {
     <>
       <h1>Ballot</h1>
       <CommonHeader title={title} />
-      <form className="pure-form pure-form-aligned">
+      <form id="ballot-form" className="pure-form pure-form-aligned">
         <fieldset>
           {propositions &&
             propositions.map((p, index) => {
