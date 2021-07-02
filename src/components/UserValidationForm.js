@@ -2,7 +2,7 @@ import { useState } from "react";
 import { CommonHeader } from "./CommonHeader";
 
 export const UserValidationForm = ({ onValidateUserInfo }) => {
-  const [voterId, setVoterId] = useState(null);
+  const [voterId, setVoterId] = useState('');
 
   const change = (e) => {
     setVoterId(e.target.value);

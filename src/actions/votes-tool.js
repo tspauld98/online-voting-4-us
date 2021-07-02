@@ -15,7 +15,6 @@ export const createValidateUserInfoAction = (voterId) => {
             if (res.status === 404) {
                 dispatch(createSetErrorAction())
             } else {
-                console.log("success");
                 dispatch(createValidateUserInfoDoneAction(voterId))
             }
         })
