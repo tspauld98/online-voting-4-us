@@ -2,7 +2,7 @@ import { useEffect, useMemo } from 'react';
 import { bindActionCreators } from 'redux';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { createRegisterVoterAction, createViewVotersAction, createResetViewAction, createEditVoterAction, createCancelEditVoterAction, refreshVoters, addVoter, updateVoter, removeVoter } from '../actions/registration-tool';
+import { createRegisterVoterAction, createViewVotersAction, createResetViewAction, createEditVoterAction, createCancelEditVoterAction, createSetVoterSortAction, refreshVoters, addVoter, updateVoter, removeVoter } from '../actions/registration-tool';
 
 export const useVoterRoll = () => {
 
@@ -12,6 +12,8 @@ export const useVoterRoll = () => {
 
   const voterEdit = useSelector(state => state.voterEdit);
 
+  const voterSort = useSelector(state => state.voterSort);
+
   const dispatch = useDispatch();
 
   const actions = useMemo(() => bindActionCreators({
@@ -20,6 +22,7 @@ export const useVoterRoll = () => {
     viewRegisterMain: createResetViewAction,
     editVoter: createEditVoterAction,
     cancelEditVoter: createCancelEditVoterAction,
+    setVoterSort: createSetVoterSortAction,
     refreshVoters: refreshVoters,
     addVoter: addVoter,
     updateVoter: updateVoter,
@@ -34,6 +37,7 @@ export const useVoterRoll = () => {
     voters,
     viewSwitch,
     voterEdit,
+    voterSort,
     ...actions,
   };
 

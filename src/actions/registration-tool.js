@@ -4,6 +4,7 @@ export const CANCEL_VOTER_ACTION = 'CANCEL_VOTER';
 export const REGISTER_VOTER_ACTION = 'REGISTER_VOTER';
 export const VIEW_VOTERS_ACTION = 'VIEW_VOTERS';
 export const RESET_VIEW_ACTION = 'RESET_VIEW';
+export const SET_VOTER_SORT_ACTION = 'SET_VOTER_SORT';
 
 export const REFRESH_VOTERS_REQUEST_ACTION = 'REFRESH_VOTERS_REQUEST';
 export const REFRESH_VOTERS_DONE_ACTION = 'REFRESH_VOTERS_DONE';
@@ -18,6 +19,7 @@ export const createCancelEditVoterAction = () => ({type: CANCEL_VOTER_ACTION});
 export const createRegisterVoterAction = () => ({type: REGISTER_VOTER_ACTION});
 export const createViewVotersAction = () => ({type: VIEW_VOTERS_ACTION});
 export const createResetViewAction = () => ({type: RESET_VIEW_ACTION});
+export const createSetVoterSortAction = value => ({type: SET_VOTER_SORT_ACTION, value});
 
 export const createRefreshVotersRequestAction = () => ({type: REFRESH_VOTERS_REQUEST_ACTION});
 export const createRefreshVotersDoneAction = value => ({type: REFRESH_VOTERS_DONE_ACTION, value});
