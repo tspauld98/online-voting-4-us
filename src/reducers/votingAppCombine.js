@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import { electionsReducer,
-  electionsReducer,
+  electionResultsReducer,
   propositionsReducer, 
 } from "./election-tool";
 import { validationReducer } from "./votes-tool";
