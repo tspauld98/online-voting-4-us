@@ -21,7 +21,7 @@ export const VoterRoll = ({
     if (voterSort.element === name) {
       setVoterSort({
         element: name,
-        ascending: (!voterSort.ascending),
+        ascending: (!!voterSort.ascending),
       });
     } else {
       setVoterSort({
