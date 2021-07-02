@@ -11,7 +11,11 @@ export const Ballot = ({ selectedBallot: ballot, userId, setBallotData }) => {
     const newB = { ...ballot };
     const desc = newB.propositions.find((p) => p.description === description);
     e.target.checked ? desc.votesFor++ : desc.votesFor--;
-    newB.voterIds.push(Number(userId));
+
+    const userIdNumeric = Number(userId);
+    if (!newB.voterIds.includes(userIdNumeric)) {
+      newB.voterIds.push(userIdNumeric);
+    }
     setNewBallot({ ...newB });
   };
 
