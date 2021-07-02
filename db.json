@@ -28,14 +28,18 @@
       "city": "Metropolis",
       "birthdate": "1980-06-30",
       "email": "toby@example.com",
-      "phone": "999-555-1234"
+      "phone": "999-555-1234",
+      "removed": true
     }
   ],
   "elections": [
     {
       "id": 1,
       "title": "Election #1",
-      "voterIds": [1, 2],
+      "voterIds": [
+        1,
+        2
+      ],
       "propositions": [
         {
           "description": "Is red the best color?",
@@ -53,7 +57,10 @@
     },
     {
       "title": "Election #2",
-      "voterIds": [1, 2],
+      "voterIds": [
+        1,
+        2
+      ],
       "propositions": [
         {
           "description": "Question 1",

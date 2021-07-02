@@ -5,13 +5,7 @@ import { CommonHeader } from "./CommonHeader";
 export const Ballot = ({ selectedBallot: ballot, userId, setBallotData }) => {
   let history = useHistory();
   const { propositions, title } = ballot;
-  // const {propositions, title} = useSelector(state => state.ballot);
   const [newBallot, setNewBallot] = useState({ ...ballot });
-  // const dispatch = useDispatch();
-
-  // const actions = useMemo(() => bindActionCreators({
-  //   onValidateUserInfo : validateUserInfoAction
-  // }, dispatch), [dispatch]);
 
   const change = (description, e) => {
     const newB = { ...ballot };
