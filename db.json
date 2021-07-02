@@ -2,14 +2,23 @@
   "voters": [
     {
       "id": 1,
-      "firstName": "Toby",
+      "firstName": "Tobius",
       "lastName": "Smith",
       "address": "123 Main Street",
       "city": "Metropolis",
       "birthdate": "1980-06-30",
       "email": "toby@example.com",
-      "phone": "999-555-1234",
-      "removed": false
+      "phone": "999-555-1234"
+    },
+    {
+      "firstName": "Timothy",
+      "lastName": "Spaulding",
+      "address": "123 Main Street",
+      "city": "San Diego",
+      "birthdate": "0000-00-00",
+      "email": "tim@example.com",
+      "phone": "123-123-1234",
+      "id": 2
     }
   ],
   "elections": [
