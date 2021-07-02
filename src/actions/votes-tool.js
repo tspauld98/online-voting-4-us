@@ -61,7 +61,7 @@ export const setBallotData = (ballot) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(ballot),
       }
-    ).then((res) => res);
+    ).then(dispatch(createValidateUserInfoRequestAction()));
     // .then(() => fetch('http://localhost:3000/'))
   };
 };
