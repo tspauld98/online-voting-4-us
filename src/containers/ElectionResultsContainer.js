@@ -20,7 +20,7 @@ export const ElectionResultsContainer = () => {
   ];
 
   const { electionId } = useParams();
-  const electionResults = useSelector((state) => state.electionResults);
+  const activeElection = useSelector((state) => state.activeElection);
   const dispatch = useDispatch();
 
   const actions = useMemo(
@@ -40,9 +40,9 @@ export const ElectionResultsContainer = () => {
 
   return (
     <>
-      <CommonHeader title={"Results: " + electionResults.title} />
+      <CommonHeader title={"Results: " + activeElection.title} />
       <SubMenu menuLinks={menuLinks} />
-      <ElectionResults election={electionResults} />
+      <ElectionResults election={activeElection} />
     </>
   );
 };
