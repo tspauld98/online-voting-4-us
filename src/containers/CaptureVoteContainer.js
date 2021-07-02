@@ -11,6 +11,7 @@ export const CaptureVoteContainer = () => {
   const { ballotId } = useParams();
   const selectedBallot = useSelector((state) => state.selectedBallot);
   const userId = useSelector((state) => state.userId);
+  const errorMessage = useSelector((state) => state.errorMessage);
   
     const dispatch = useDispatch();
 
@@ -31,6 +32,8 @@ export const CaptureVoteContainer = () => {
     actions.loadElection(ballotId);
   }, [actions, ballotId]);
 
+  console.log('jane', errorMessage)
+
   return (
     <>
       <UserValidationForm
@@ -39,7 +42,7 @@ export const CaptureVoteContainer = () => {
         selectedBallot={selectedBallot}
       />
       {userId && <Ballot selectedBallot={selectedBallot} userId={userId} setBallotData={actions.setBallotData} />}
-      {!userId && <h1> this ID is invalid </h1>}
+      {errorMessage && <h1>{errorMessage}</h1>}
     </>
   );
 };

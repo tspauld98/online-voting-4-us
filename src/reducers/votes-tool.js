@@ -1,4 +1,4 @@
-import { VALIDATE_USER_INFO_DONE_ACTION, VALIDATE_USER_INFO_REQUEST_ACTION, GET_CURRENT_BALLOT_DATA_ACTION } from "../actions/votes-tool";
+import { VALIDATE_USER_INFO_DONE_ACTION, VALIDATE_USER_INFO_REQUEST_ACTION, GET_CURRENT_BALLOT_DATA_ACTION, SET_ERROR_ACTION } from "../actions/votes-tool";
 
 
 
@@ -20,4 +20,13 @@ export const ballotReducer = (ballot={}, action) => {
         default:
             return ballot;
     }
+}
+
+export const errorMessageReducer = (_, action) => {
+
+    if (action.type === SET_ERROR_ACTION) {
+      return action.message;
+    }
+  
+    return "";
 }

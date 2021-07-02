@@ -28,8 +28,6 @@ export const Ballot = ({selectedBallot: ballot, userId, setBallotData}) => {
         })
     }
 
-    console.log('jane', newBallot)
-
     return (
     <>
         <h1>Ballot</h1>

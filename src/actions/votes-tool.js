@@ -2,6 +2,7 @@ export const VALIDATE_USER_INFO_REQUEST_ACTION = "VALIDATE_USER_INFO_REQUEST";
 export const VALIDATE_USER_INFO_DONE_ACTION = "VALIDATE_USER_INFO_DONE";
 export const GET_CURRENT_BALLOT_DATA_ACTION = "GET_CURRENT_BALLOT_DATA";
 export const SET_CURRENT_BALLOT_DATA_ACTION = "SET_CURRENT_BALLOT_DATA";
+export const SET_ERROR_ACTION = 'SET_ERROR';
 
 export const createValidateUserInfoAction = (voterId, ballotId) => {
     return dispatch => {
@@ -9,7 +10,7 @@ export const createValidateUserInfoAction = (voterId, ballotId) => {
         return fetch('http://localhost:3060/voters/' + encodeURIComponent(voterId))
         .then((res) => {
             if (res.status === 404) {
-
+                dispatch(createSetErrorAction())
             } else {
                 console.log("success");
                 dispatch(createValidateUserInfoDoneAction(voterId))
@@ -18,6 +19,11 @@ export const createValidateUserInfoAction = (voterId, ballotId) => {
         })
     }
 }
+
+export const createSetErrorAction = () => ({
+    type: SET_ERROR_ACTION,
+    message: "This ID is invalid."
+})
 
 export const getBallotData = (ballotId) => {
     return dispatch => {
@@ -47,7 +53,6 @@ export const createSetCurrentBallotDataAction = (ballot) => ({
 });
 
 export const setBallotData = (ballot) => {
-    console.log(ballot);
     return dispatch => {
         return fetch('http://localhost:3060/elections/' + encodeURIComponent(ballot.id), {
             method: "PUT",
@@ -55,6 +60,5 @@ export const setBallotData = (ballot) => {
             body: JSON.stringify(ballot),
         })
         .then(dispatch(createValidateUserInfoRequestAction()));
-        // .then(() => fetch('http://localhost:3000/'))
     }
 }

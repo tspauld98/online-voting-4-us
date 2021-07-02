@@ -1,8 +1,17 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from "react-router-dom";
 import { SelectBallotContainer } from "../containers/SelectBallotContainer";
+import {createValidateUserInfoRequestAction} from "../actions/votes-tool";
 
 export const Splash = () => {
   const splashImgPath = "assets/images/seal_mascot.png";
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(createValidateUserInfoRequestAction());
+  }, [dispatch])
 
   return (
     <>
