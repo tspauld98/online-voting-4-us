@@ -4,7 +4,7 @@ import {
   electionResultsReducer,
   propositionsReducer,
 } from "./election-tool";
-import { validationReducer, errorMessageReducer, } from "./votes-tool";
+import { validationReducer, errorMessageReducer, electionAlreadyVotedReducer } from "./votes-tool";
 
 export const votingAppCombineReducer = combineReducers({
   userId: validationReducer,
@@ -13,4 +13,5 @@ export const votingAppCombineReducer = combineReducers({
   electionResults: electionResultsReducer,
   selectedBallot: electionResultsReducer,
   errorMessage: errorMessageReducer,
+  alreadyVotedFlag: electionAlreadyVotedReducer,
 });

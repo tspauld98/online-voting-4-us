@@ -48,15 +48,18 @@
     },
     {
       "title": "Election #2",
-      "voterIds": [],
+      "voterIds": [
+        1,
+        1
+      ],
       "propositions": [
         {
           "description": "Question 1",
-          "votesFor": 0
+          "votesFor": 1
         },
         {
           "description": "Question 2",
-          "votesFor": 0
+          "votesFor": 1
         },
         {
           "description": "Question 3",

@@ -4,12 +4,12 @@ import { useForm } from "../hooks/useForm";
 export const SelectBallot = ({ ballots }) => {
   const history = useHistory();
   const [form, change] = useForm({
-    ballot: "",
+    ballot: "-1",
   });
 
   const onVoteClick = () => {
-    const ballotId = form.ballot === "" ? ballots[0].id : form.ballot;
-    history.push(`/vote/ballot/${ballotId}`);
+    if (form.ballot === "-1") return;
+    history.push(`/vote/ballot/${form.ballot}`);
   };
 
   return (
@@ -25,6 +25,7 @@ export const SelectBallot = ({ ballots }) => {
               id="ballots"
               onChange={change}
             >
+              <option value="-1">--Select One--</option>
               {ballots.map((ballot) => {
                 return (
                   <option key={ballot.id} value={ballot.id}>
