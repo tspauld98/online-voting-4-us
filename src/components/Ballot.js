@@ -14,7 +14,6 @@ export const Ballot = ({ selectedBallot: ballot, userId, setBallotData }) => {
   // }, dispatch), [dispatch]);
 
   const change = (description, e) => {
-    console.log(e.target.checked);
     const newB = { ...ballot };
     const desc = newB.propositions.find((p) => p.description === description);
     e.target.checked ? desc.votesFor++ : desc.votesFor--;
