@@ -13,11 +13,6 @@ export const CaptureVoteContainer = () => {
   const userId = useSelector((state) => state.userId);
   
     const dispatch = useDispatch();
-  
-    const validationActions = useMemo(() => bindActionCreators({
-      onValidateUserInfo : createValidateUserInfoAction,
-      setBallotData: setBallotData
-    }, dispatch), [dispatch]);
 
   const actions = useMemo(
     () =>
@@ -25,6 +20,7 @@ export const CaptureVoteContainer = () => {
         {
           loadElection: loadElection,
           onValidateUserInfo: createValidateUserInfoAction,
+          setBallotData: setBallotData
         },
         dispatch
       ),
@@ -42,7 +38,7 @@ export const CaptureVoteContainer = () => {
         onValidateUserInfo={actions.onValidateUserInfo}
         selectedBallot={selectedBallot}
       />
-      {userId && <Ballot selectedBallot={selectedBallot} userId={userId} setBallotData={validationActions.setBallotData} />}
+      {userId && <Ballot selectedBallot={selectedBallot} userId={userId} setBallotData={actions.setBallotData} />}
       {!userId && <h1> this ID is invalid </h1>}
     </>
   );

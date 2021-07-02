@@ -1,8 +1,9 @@
 import { useSelector } from 'react-redux'
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 export const Ballot = ({selectedBallot: ballot, userId, setBallotData}) => {
-
+    let history = useHistory();
     const { propositions, title } = ballot;
     // const {propositions, title} = useSelector(state => state.ballot);
     const [newBallot, setNewBallot] = useState({...ballot})
@@ -23,9 +24,9 @@ export const Ballot = ({selectedBallot: ballot, userId, setBallotData}) => {
 
     const submit = () => {
         setBallotData(newBallot)
-        // .then(() => {
-        //     //history.push w/ route
-        // })
+        .then(() => {
+            history.push("/home");
+        })
     }
 
     console.log('jane', newBallot)
