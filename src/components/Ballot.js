@@ -12,7 +12,7 @@ export const Ballot = () => {
 
     return (
     <>
-        <UserValidationForm />
+        <h1>Ballot</h1>
     </>
     );
 }
