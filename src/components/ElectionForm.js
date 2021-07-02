@@ -45,11 +45,16 @@ export const ElectionForm = ({
             name="title"
           />
         </div>
-        <ul>
-          {propositions.map((prop, index) => {
-            return <li key={index}>{prop}</li>;
-          })}
-        </ul>
+        {propositions && propositions.length > 0 && (
+          <div>
+            Saved propositions:
+            <ul>
+              {propositions.map((prop, index) => {
+                return <li key={index}>{prop}</li>;
+              })}
+            </ul>
+          </div>
+        )}
         <div className="pure-control-group">
           <label htmlFor="proposition-input">Proposition details</label>
           <input
@@ -62,7 +67,7 @@ export const ElectionForm = ({
           <button
             type="button"
             onClick={onAppendPropositionClick}
-            className="button-green button-xsmall"
+            className="button-green button-xsmall button-secondary"
           >
             Add
           </button>
@@ -71,7 +76,7 @@ export const ElectionForm = ({
           <button
             type="button"
             onClick={submitForm}
-            className="button-primary pure-button button-blue"
+            className="button-secondary button-blue"
           >
             Create election
           </button>

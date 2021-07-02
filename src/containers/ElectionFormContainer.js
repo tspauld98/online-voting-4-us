@@ -2,6 +2,7 @@ import { bindActionCreators } from "redux";
 import { useSelector, useDispatch } from "react-redux";
 
 import { CommonHeader } from "../components/CommonHeader";
+import { SubMenu } from "../components/SubMenu";
 import { ElectionForm } from "../components/ElectionForm";
 import {
   appendElection,
@@ -9,6 +10,13 @@ import {
 } from "../actions/election-tool";
 
 export const ElectionFormContainer = () => {
+  const menuLinks = [
+    {
+      href: "/manageElections",
+      label: "Back to Elections List",
+    },
+  ];
+
   const propositions = useSelector((state) => state.propositions);
 
   const actions = bindActionCreators(
@@ -22,9 +30,7 @@ export const ElectionFormContainer = () => {
   return (
     <>
       <CommonHeader title="Election Form" />
-      <div>
-        <a href="/manageElections">Back to Elections List</a>
-      </div>
+      <SubMenu menuLinks={menuLinks} />
       <ElectionForm
         propositions={propositions}
         onSubmitForm={actions.onAppendElection}
