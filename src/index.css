@@ -130,7 +130,7 @@ a.pure-button-primary {
 .splash-container {
   background: #1f8dd6;
   z-index: 1;
-  overflow: hidden;
+  overflow: scroll;
   /* The following styles are required for the "scroll-over" effect */
   width: 100%;
   height: 100%;
@@ -322,4 +322,10 @@ span.splash-subhead {
 
 #validation-form .pure-controls {
   margin-top: 0;
+}
+
+#ballot-form .pure-control-group label {
+  width: 60%;
+  padding-left: 15px;
+  text-align: left;
 }

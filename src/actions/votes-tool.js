@@ -12,11 +12,17 @@ export const createValidateUserInfoAction = (voterId) => {
         dispatch(createValidateUserInfoRequestAction());
         return fetch('http://localhost:3060/voters/' + encodeURIComponent(voterId))
         .then((res) => {
-            if (res.status === 404) {
-                dispatch(createSetErrorAction())
-            } else {
-                dispatch(createValidateUserInfoDoneAction(voterId))
-            }
+            let isRemoved = false;
+            res.json().then(voter => {
+                if (voter.removed) {
+                    isRemoved = true;
+                }
+                if (res.status === 404 || isRemoved) {
+                    dispatch(createSetErrorAction())
+                } else {
+                    dispatch(createValidateUserInfoDoneAction(voterId))
+                }
+            })
         })
     }
 }

@@ -28,7 +28,8 @@
       "city": "Metropolis",
       "birthdate": "1980-06-30",
       "email": "toby@example.com",
-      "phone": "999-555-1234"
+      "phone": "999-555-1234",
+      "removed": true
     }
   ],
   "elections": [
@@ -77,62 +78,31 @@
       "id": 3
     },
     {
-      "title": "Election 4",
-      "voterIds": [
-        1
-      ],
+      "title": "Seals Facts - True or False",
+      "voterIds": [],
       "propositions": [
         {
-          "description": "q1",
-          "votesFor": 1
-        },
-        {
-          "description": "q2",
+          "description": "Seals Are Related to Bears, Skunks, and Badgers",
           "votesFor": 0
         },
         {
-          "description": "q3",
+          "description": "The Largest Seal Weighs More Than Four Tons",
+          "votesFor": 0
+        },
+        {
+          "description": "\"Earless\" True Seals Actually Do Have Ears",
+          "votesFor": 0
+        },
+        {
+          "description": "Their Brain Temperature Drops When They Dive",
+          "votesFor": 0
+        },
+        {
+          "description": "Mothers and Pups Bond With a Unique Call",
           "votesFor": 0
         }
       ],
       "id": 4
-    },
-    {
-      "title": "Election5",
-      "voterIds": [
-        1,
-        2
-      ],
-      "propositions": [
-        {
-          "description": "q1",
-          "votesFor": 2
-        },
-        {
-          "description": "q2",
-          "votesFor": 2
-        },
-        {
-          "description": "q43",
-          "votesFor": 0
-        }
-      ],
-      "id": 5
-    },
-    {
-      "title": "new election",
-      "voterIds": [],
-      "propositions": [
-        {
-          "description": "hello",
-          "votesFor": 0
-        },
-        {
-          "description": "testing?",
-          "votesFor": 0
-        }
-      ],
-      "id": 6
     }
   ]
 }

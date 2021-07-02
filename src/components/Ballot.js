@@ -5,19 +5,17 @@ import { CommonHeader } from "./CommonHeader";
 export const Ballot = ({ selectedBallot: ballot, userId, setBallotData }) => {
   let history = useHistory();
   const { propositions, title } = ballot;
-  // const {propositions, title} = useSelector(state => state.ballot);
   const [newBallot, setNewBallot] = useState({ ...ballot });
-  // const dispatch = useDispatch();
-
-  // const actions = useMemo(() => bindActionCreators({
-  //   onValidateUserInfo : validateUserInfoAction
-  // }, dispatch), [dispatch]);
 
   const change = (description, e) => {
     const newB = { ...ballot };
     const desc = newB.propositions.find((p) => p.description === description);
     e.target.checked ? desc.votesFor++ : desc.votesFor--;
-    newB.voterIds.push(Number(userId));
+
+    const userIdNumeric = Number(userId);
+    if (!newB.voterIds.includes(userIdNumeric)) {
+      newB.voterIds.push(userIdNumeric);
+    }
     setNewBallot({ ...newB });
   };
 
@@ -31,7 +29,7 @@ export const Ballot = ({ selectedBallot: ballot, userId, setBallotData }) => {
     <>
       <h1>Ballot</h1>
       <CommonHeader title={title} />
-      <form className="pure-form pure-form-aligned">
+      <form id="ballot-form" className="pure-form pure-form-aligned">
         <fieldset>
           {propositions &&
             propositions.map((p, index) => {
