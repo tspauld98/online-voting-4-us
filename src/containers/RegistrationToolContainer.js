@@ -5,7 +5,7 @@ import { VoterRoll } from "../components/VoterRoll";
 
 export const RegistrationToolContainer = () => {
 
-  const { voters, viewSwitch, voterEdit, registerVoter, viewVoters, viewRegisterMain, editVoter, cancelEditVoter, addVoter, updateVoter, removeVoter } = useVoterRoll();
+  const { voters, viewSwitch, voterEdit, voterSort, registerVoter, viewVoters, viewRegisterMain, editVoter, cancelEditVoter, addVoter, updateVoter, removeVoter } = useVoterRoll();
 
   switch (viewSwitch) {
     case 1:

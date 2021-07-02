@@ -1,3 +1,4 @@
+import { SET_VOTER_SORT_ACTION } from "../actions/registration-tool";
 import { REFRESH_VOTERS_DONE_ACTION, REGISTER_VOTER_ACTION, VIEW_VOTERS_ACTION, RESET_VIEW_ACTION, EDIT_VOTER_ACTION } from "../actions/registration-tool";
 
 export const registrationsReducer = (voters = [], action) => {
@@ -27,5 +28,13 @@ export const voterEditReducer = (_, action) => {
     return action.value;
   } else {
     return 0;
+  }
+};
+
+export const voterSortReducer = (voterSort = { element: "id", ascending: true }, action) => {
+  if (action.type === SET_VOTER_SORT_ACTION) {
+    return action.value;
+  } else {
+    return voterSort;
   }
 };
