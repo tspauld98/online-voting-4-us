@@ -1,36 +1,44 @@
-import { useState } from 'react';
+import { useState } from "react";
+import { CommonHeader } from "./CommonHeader";
 
-export const UserValidationForm = ({onValidateUserInfo, ballotId}) => {
+export const UserValidationForm = ({ onValidateUserInfo }) => {
+  const [voterId, setVoterId] = useState(-1);
 
-    const [voterId, setVoterId] = useState(-1);
+  const change = (e) => {
+    setVoterId(e.target.value);
+  };
 
-    const change = (e) => {
-        setVoterId(e.target.value);
-    }
+  const validateUserInfo = () => {
+    onValidateUserInfo(voterId);
+  };
 
-    const validateUserInfo = () => {
-        onValidateUserInfo(voterId, ballotId);
-    }
-
-    return (
+  return (
     <>
-        <h1>Capture Votes</h1>
-        <h2>User Info</h2>
-        <form>
-            <div>
-                <label htmlFor="voterId">Voter ID</label>
-                <input
-                type="text"
-                id="voterId"
-                name="voterId"
-                value={voterId}
-                onChange={change}
-                />
-            </div>
-            <button type="button" onClick={validateUserInfo}>
-                Submit
-            </button>
-        </form>
+      <h1>Capture Votes</h1>
+      <CommonHeader title="User Info" />
+      <form id="validation-form" className="pure-form pure-form-aligned">
+        <fieldset>
+          <div className="pure-control-group">
+            <label htmlFor="voterId">Voter ID</label>
+            <input
+              type="text"
+              id="voterId"
+              name="voterId"
+              value={voterId}
+              onChange={change}
+            />
+          </div>
+        </fieldset>
+        <div className="pure-controls">
+          <button
+            type="button"
+            onClick={validateUserInfo}
+            className="button-secondary button-blue"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
     </>
-    );
-}
+  );
+};
