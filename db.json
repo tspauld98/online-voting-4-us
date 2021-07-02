@@ -18,7 +18,8 @@
       "birthdate": "0000-00-00",
       "email": "tim@example.com",
       "phone": "123-123-1234",
-      "id": 2
+      "id": 2,
+      "removed": true
     },
     {
       "id": 3,
@@ -30,6 +31,16 @@
       "email": "toby@example.com",
       "phone": "999-555-1234",
       "removed": true
+    },
+    {
+      "id": 4,
+      "firstName": "Ron",
+      "lastName": "Johnson",
+      "address": "123 Main Street",
+      "city": "Tampa",
+      "birthdate": "0000-00-00",
+      "email": "ron@example.com",
+      "phone": "123-123-1234"
     }
   ],
   "elections": [
@@ -38,7 +49,8 @@
       "title": "Election #1",
       "voterIds": [
         1,
-        2
+        2,
+        4
       ],
       "propositions": [
         {
@@ -47,11 +59,11 @@
         },
         {
           "description": "Is Eric the best React instructor?",
-          "votesFor": 1
+          "votesFor": 2
         },
         {
           "description": "Are the Reactive-Coders the best team?",
-          "votesFor": 1
+          "votesFor": 2
         }
       ]
     },
@@ -103,6 +115,25 @@
         }
       ],
       "id": 4
+    },
+    {
+      "title": "Best Teammate",
+      "voterIds": [],
+      "propositions": [
+        {
+          "description": "Alex",
+          "votesFor": 0
+        },
+        {
+          "description": "Yeg",
+          "votesFor": 0
+        },
+        {
+          "description": "tim",
+          "votesFor": 0
+        }
+      ],
+      "id": 5
     }
   ]
 }

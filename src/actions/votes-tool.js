@@ -12,12 +12,8 @@ export const createValidateUserInfoAction = (voterId) => {
         dispatch(createValidateUserInfoRequestAction());
         return fetch('http://localhost:3060/voters/' + encodeURIComponent(voterId))
         .then((res) => {
-            let isRemoved = false;
-            res.json().then(voter => {
-                if (voter.removed) {
-                    isRemoved = true;
-                }
-                if (res.status === 404 || isRemoved) {
+            return res.json().then(voter => {
+                if (res.status === 404 || voter.removed) {
                     dispatch(createSetErrorAction())
                 } else {
                     dispatch(createValidateUserInfoDoneAction(voterId))
