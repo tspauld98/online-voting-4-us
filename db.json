@@ -26,40 +26,26 @@
       "id": 1,
       "title": "Election #1",
       "voterIds": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
         1
       ],
       "propositions": [
         {
           "description": "Is red the best color?",
-          "votesFor": 6
+          "votesFor": 0
         },
         {
-          "id": 2,
           "description": "Is Eric the best React instructor?",
-          "votesFor": 6
+          "votesFor": 1
         },
         {
           "description": "Are the Reactive-Coders the best team?",
-          "votesFor": 2
+          "votesFor": 1
         }
       ]
     },
     {
       "title": "Election #2",
       "voterIds": [
-        1,
         1
       ],
       "propositions": [
