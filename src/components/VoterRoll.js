@@ -29,8 +29,8 @@ export const VoterRoll = ({
         ascending: true,
       });
     }
-    console.log(voterSort);
-    console.log(voters);
+    // console.log(voterSort);
+    // console.log(voters);
     voters.sort((a, b) => {
       var elementA, elementB;
       
@@ -42,11 +42,20 @@ export const VoterRoll = ({
         elementB = b[voterSort.element];
       }
 
-      if (elementA < elementB) {
-        return -1;
-      }
-      if (elementA > elementB) {
-        return 1;
+      if (voterSort.ascending) {
+        if (elementA > elementB) {
+          return -1;
+        }
+        if (elementA < elementB) {
+          return 1;
+        }
+      } else {
+        if (elementA < elementB) {
+          return -1;
+        }
+        if (elementA > elementB) {
+          return 1;
+        }
       }
       return 0;
      });
