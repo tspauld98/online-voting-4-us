@@ -8,6 +8,8 @@ import { Ballot } from '../components/Ballot';
 export const CaptureVoteContainer = () => {
 
     const validation = useSelector(state => state.validation);
+    const ballot = useSelector(state => state.ballot);
+    const ballotId = 1; //get data here
   
     const dispatch = useDispatch();
   
@@ -17,8 +19,8 @@ export const CaptureVoteContainer = () => {
 
     return (
     <>
-        <UserValidationForm validation={validation} {...validationActions}/>
-        { validation && <Ballot /> }
+        <UserValidationForm validation={validation} ballotId={ballotId} {...validationActions}/>
+        { validation && <Ballot ballot={ballot}/> }
         { !validation && <h1> this ID is invalid </h1> }
     </>
     );

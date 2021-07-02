@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const UserValidationForm = ({validation, onValidateUserInfo}) => {
+export const UserValidationForm = ({validation, onValidateUserInfo, ballotId}) => {
 
     const [userId, setUserId] = useState(-1);
 
@@ -9,7 +9,7 @@ export const UserValidationForm = ({validation, onValidateUserInfo}) => {
     }
 
     const validateUserInfo = () => {
-        onValidateUserInfo(userId);
+        onValidateUserInfo(userId, ballotId);
     }
 
     return (
