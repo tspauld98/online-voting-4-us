@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import { bindActionCreators } from "redux";
 import { useDispatch, useSelector } from "react-redux";
 import { UserValidationForm } from "../components/UserValidationForm";
-import { createValidateUserInfoAction } from "../actions/votes-tool.js";
+import { createValidateUserInfoAction, setBallotData } from "../actions/votes-tool.js";
 import { loadElection } from "../actions/election-tool";
 import { Ballot } from "../components/Ballot";
 
@@ -15,7 +15,8 @@ export const CaptureVoteContainer = () => {
     const dispatch = useDispatch();
   
     const validationActions = useMemo(() => bindActionCreators({
-      onValidateUserInfo : createValidateUserInfoAction
+      onValidateUserInfo : createValidateUserInfoAction,
+      setBallotData: setBallotData
     }, dispatch), [dispatch]);
 
   const actions = useMemo(
@@ -41,7 +42,7 @@ export const CaptureVoteContainer = () => {
         onValidateUserInfo={actions.onValidateUserInfo}
         selectedBallot={selectedBallot}
       />
-      {userId && <Ballot selectedBallot={selectedBallot} userId={userId} />}
+      {userId && <Ballot selectedBallot={selectedBallot} userId={userId} setBallotData={validationActions.setBallotData} />}
       {!userId && <h1> this ID is invalid </h1>}
     </>
   );

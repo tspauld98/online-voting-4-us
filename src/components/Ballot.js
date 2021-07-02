@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import { useState } from "react";
 
-export const Ballot = ({selectedBallot: ballot, userId}) => {
+export const Ballot = ({selectedBallot: ballot, userId, setBallotData}) => {
 
     const { propositions, title } = ballot;
     // const {propositions, title} = useSelector(state => state.ballot);
@@ -12,17 +12,23 @@ export const Ballot = ({selectedBallot: ballot, userId}) => {
     //   onValidateUserInfo : validateUserInfoAction
     // }, dispatch), [dispatch]);
 
-    console.log('jane', newBallot)
-
     const change = (description, e) => {
         console.log(e.target.checked);
         const newB = {...ballot}
         const desc = newB.propositions.find(p => p.description === description)
         e.target.checked ? desc.votesFor++ : desc.votesFor--;
-        console.log('p', newB);
-        newB.voterIds.push(userId)
-        // setNewBallot({...newB})
+        newB.voterIds.push(Number(userId))
+        setNewBallot({...newB})
     }
+
+    const submit = () => {
+        setBallotData(newBallot)
+        // .then(() => {
+        //     //history.push w/ route
+        // })
+    }
+
+    console.log('jane', newBallot)
 
     return (
     <>
@@ -36,6 +42,7 @@ export const Ballot = ({selectedBallot: ballot, userId}) => {
                 </div>
             )
         })}
+        <button type="button" onClick={submit}>Cast Vote</button>
     </>
     );
 }
