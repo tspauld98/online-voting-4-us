@@ -323,3 +323,9 @@ span.splash-subhead {
 #validation-form .pure-controls {
   margin-top: 0;
 }
+
+#ballot-form .pure-control-group label {
+  width: 60%;
+  padding-left: 15px;
+  text-align: left;
+}
