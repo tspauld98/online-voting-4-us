@@ -8,14 +8,13 @@ export const createValidateUserInfoAction = (voterId) => {
         return fetch('http://localhost:3060/voters/' + encodeURIComponent(voterId))
         .then((res) => {
             if (res.status === 404) {
-                // dispatch()
-                dispatch(createResetUserInfoDoneAction())
+
             } else {
                 console.log("success");
                 dispatch(createValidateUserInfoDoneAction(voterId))
             }
         })
-       // (error) => {console.log("do not have this voter")})
+
     }
 }
 
@@ -26,8 +25,4 @@ export const createValidateUserInfoRequestAction = () => ({
 export const createValidateUserInfoDoneAction = (voterId) => ({
     type: VALIDATE_USER_INFO_DONE_ACTION,
     voterId
-});
-
-export const createResetUserInfoDoneAction = () => ({
-    type: RESET_USER_INFO_DONE_ACTION
 });

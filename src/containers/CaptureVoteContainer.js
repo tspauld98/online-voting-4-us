@@ -19,6 +19,7 @@ export const CaptureVoteContainer = () => {
     <>
         <UserValidationForm validation={validation} {...validationActions}/>
         { validation && <Ballot /> }
+        { !validation && <h1> this ID is invalid </h1> }
     </>
     );
 }
