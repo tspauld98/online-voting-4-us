@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 export const UserValidationForm = ({onValidateUserInfo, ballotId}) => {
 
-    const [voterId, setVoterId] = useState(-1);
+    const [voterId, setVoterId] = useState(null);
 
     const change = (e) => {
         setVoterId(e.target.value);
