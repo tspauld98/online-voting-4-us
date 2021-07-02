@@ -3,7 +3,11 @@ import { useParams } from "react-router";
 import { bindActionCreators } from "redux";
 import { useDispatch, useSelector } from "react-redux";
 import { UserValidationForm } from "../components/UserValidationForm";
-import { createValidateUserInfoAction, setBallotData } from "../actions/votes-tool.js";
+import {
+  createSetElectionAlreadyVotedAction,
+  createValidateUserInfoAction,
+  setBallotData,
+} from "../actions/votes-tool.js";
 import { loadElection } from "../actions/election-tool";
 import { Ballot } from "../components/Ballot";
 
@@ -11,8 +15,9 @@ export const CaptureVoteContainer = () => {
   const { ballotId } = useParams();
   const selectedBallot = useSelector((state) => state.selectedBallot);
   const userId = useSelector((state) => state.userId);
-  
-    const dispatch = useDispatch();
+  const alreadyVotedFlag = useSelector((state) => state.alreadyVotedFlag);
+
+  const dispatch = useDispatch();
 
   const actions = useMemo(
     () =>
@@ -20,7 +25,8 @@ export const CaptureVoteContainer = () => {
         {
           loadElection: loadElection,
           onValidateUserInfo: createValidateUserInfoAction,
-          setBallotData: setBallotData
+          setAlreadyVotedFlag: createSetElectionAlreadyVotedAction,
+          setBallotData: setBallotData,
         },
         dispatch
       ),
@@ -31,15 +37,30 @@ export const CaptureVoteContainer = () => {
     actions.loadElection(ballotId);
   }, [actions, ballotId]);
 
+  if (userId) {
+    const hasUserAlreadyVoted = selectedBallot?.voterIds?.includes(
+      Number(userId)
+    );
+    actions.setAlreadyVotedFlag(hasUserAlreadyVoted);
+  }
+
   return (
     <>
       <UserValidationForm
         userId={userId}
         onValidateUserInfo={actions.onValidateUserInfo}
-        selectedBallot={selectedBallot}
       />
-      {userId && <Ballot selectedBallot={selectedBallot} userId={userId} setBallotData={actions.setBallotData} />}
+      {userId && !alreadyVotedFlag && (
+        <Ballot
+          selectedBallot={selectedBallot}
+          userId={userId}
+          setBallotData={actions.setBallotData}
+        />
+      )}
       {!userId && <h1> this ID is invalid </h1>}
+      {userId && alreadyVotedFlag && (
+        <h1> You have already cast your vote in this election</h1>
+      )}
     </>
   );
 };
