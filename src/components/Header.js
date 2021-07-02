@@ -15,9 +15,6 @@ export const Header = () => {
               <Link className="pure-menu-link" to="/register">Register Voter</Link>
             </li>
             <li className="pure-menu-item">
-              <Link className="pure-menu-link" to="/vote">Vote</Link>
-            </li>
-            <li className="pure-menu-item">
               <Link className="pure-menu-link" to="/manageElections">Manage Elections</Link>
             </li>
           </ul>
